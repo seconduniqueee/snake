@@ -28,7 +28,7 @@ fn main() {
     while state.app_state.app_running {
         ticks += 1;
 
-        update_settings(&mut state);
+        check_for_settings_update(&mut state);
         check_new_leaderboard_score(&mut state);
         check_view_offset(&mut state.app_state);
         check_for_keyboard_event(&mut state);
@@ -67,7 +67,7 @@ fn set_initial_state(state: &mut State) {
     let parsed = serde_json::from_str(&content);
 
     if content.is_empty() || parsed.is_err() {
-        update_settings(state);
+        check_for_settings_update(state);
         return;
     }
 
@@ -174,7 +174,7 @@ fn check_new_leaderboard_score(state: &mut State) {
     }
 }
 
-fn update_settings(state: &mut State) {
+fn check_for_settings_update(state: &mut State) {
     if !state.app_state.dirty { return; }
 
     let json = to_string_pretty(state).unwrap();

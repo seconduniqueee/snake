@@ -1,6 +1,6 @@
 use crossterm::event::{KeyCode, KeyEvent};
 use crate::models::{GameState, MainMenuItemsEnum, MenuItem, MenusEnum, ScreensEnum, State, DIFFICULTY_MENU_ITEMS, LEVEL_MENU_ITEMS, MAIN_MENU_ITEMS, SCREEN_SIZE};
-use crate::utils::{set_col_position};
+use crate::utils::{print_empty_lines, set_col_position};
 
 pub fn process_keyboard_event(state: &mut State, key_event: KeyEvent) {
     match key_event.code {
@@ -24,7 +24,8 @@ pub fn render(state: &mut State) {
 
     let app_state = &mut state.app_state;
 
-    for _ in 0..5 { println!(); }
+    print_empty_lines(5);
+
     for i in 0..menu_labels.len() {
         let option_offset = (SCREEN_SIZE.0 - (menu_labels[i].len() as u16 + 5)) / 2;
         let is_selected = app_state.selected_menu_item == i;
@@ -101,7 +102,7 @@ fn process_difficulty_menu_selection(state: &mut State) {
     state.app_state.game_started = false;
     state.app_state.difficulty = difficulty;
     state.app_state.selected_menu = MenusEnum::MainMenu;
-    state.app_state.selected_menu_item = main_menu_item_index(state, MainMenuItemsEnum::Difficulty);
+    state.app_state.selected_menu_item = get_main_menu_item_index(state, MainMenuItemsEnum::Difficulty);
     state.app_state.dirty = true;
 }
 
@@ -112,7 +113,7 @@ fn process_level_menu_selection(state: &mut State) {
     state.app_state.game_started = false;
     state.app_state.level = level;
     state.app_state.selected_menu = MenusEnum::MainMenu;
-    state.app_state.selected_menu_item = main_menu_item_index(state, MainMenuItemsEnum::LevelSelection);
+    state.app_state.selected_menu_item = get_main_menu_item_index(state, MainMenuItemsEnum::LevelSelection);
     state.app_state.dirty = true;
 }
 
@@ -145,7 +146,7 @@ fn get_main_menu_items(state: &State) -> Vec<MenuItem<MainMenuItemsEnum>> {
         .collect()
 }
 
-fn main_menu_item_index(state: &mut State, item_type: MainMenuItemsEnum) -> usize {
+fn get_main_menu_item_index(state: &mut State, item_type: MainMenuItemsEnum) -> usize {
     get_main_menu_items(state)
         .iter()
         .position(|a| a.value == item_type)
