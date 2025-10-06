@@ -2,29 +2,17 @@
 
 A terminal-based Snake game implemented in Rust, featuring a centered, refreshable UI, dynamic levels, difficulty settings, and persistent state.
 
----
-
 ## Features
 
-* **Classic Snake Gameplay**
-  Control the snake to collect food and avoid walls. Bonus appears once every 5 food eaten and decreases in value over time.
-
-* **Leaderboard**
-  Tracks the top 10 local scores. If your score ranks in the top 10, it is automatically saved.
-
-* **Difficulty Settings**
-  Four levels: Easy, Medium, Hard, Extreme. Each affects snake speed and points per food.
-
-* **Level Selection**
-  Five unique levels with different wall layouts for more engaging gameplay.
-
-* **Continue Game**
-  Navigate back to the menu during a game and resume an in-progress game using the "Continue" option.
-
-* **Persistent State**
-  Saves difficulty, level, and in-progress games automatically. Reopen the game to continue where you left off.
+* Control the snake to collect food and avoid walls. Bonus appears once every 5 food eaten and decreases in value over time.
+* Tracks the top 10 local scores. If your score ranks in the top 10, it is automatically saved.
+* Four difficulty levels: Easy, Medium, Hard, Extreme. Each affects snake speed and points per food.
+* Five unique levels with different wall layouts.
+* Navigate back to the menu during a game and resume an in-progress game using the "Continue" option.
+* Saves difficulty, level, and in-progress games automatically. Reopen the game to continue where you left off.
 
 ---
+
 
 ## Dependencies
 
@@ -38,7 +26,7 @@ This project uses the following Rust crates:
 
 ---
 
-## File Structure
+## Por Structure
 ```bash
 snake_game/
 ├─ main.rs
@@ -53,6 +41,13 @@ snake_game/
 └─ utils/             # Helper functions
    └─ mod.rs
 ```
+
+
+## Gameplay Preview
+
+https://github.com/user-attachments/assets/35b188a3-6c65-4013-93b0-e6f1cf795781
+
+---
 
 ## Running the Game
 
