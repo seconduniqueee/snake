@@ -42,16 +42,16 @@ This project uses the following Rust crates:
 ```bash
 snake_game/
 ├─ main.rs
-├─ game/
-│  └─ mod.rs           # Core game loop and mechanics
-├─ leaderboard/
-│  └─ mod.rs           # Leaderboard logic
-├─ menu/
-│  └─ mod.rs           # Menu navigation and options
-├─ models/
-│  └─ mod.rs           # Enums, constants, and lists
-└─ utils/
-   └─ mod.rs           # Helper functions
+├─ game/              # Core game loop and mechanics
+│  └─ mod.rs           
+├─ leaderboard/       # Leaderboard logic
+│  └─ mod.rs           
+├─ menu/              # Menu navigation and options
+│  └─ mod.rs           
+├─ models/            # Enums, constants, and lists
+│  └─ mod.rs           
+└─ utils/             # Helper functions
+   └─ mod.rs
 ```
 
 ## Running the Game
